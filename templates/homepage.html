@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Screener</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #3b82f6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .upload-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 350px;
+    }
+
+    .upload-container h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #111827;
+    }
+
+    .file-input {
+      border: 2px dashed #3b82f6;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .file-input:hover {
+      border-color: #2563eb;
+      background: #eef2ff;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #1f2937;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      margin-top: 20px;
+      background: #3b82f6;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-container">
+    <h2>Upload Your Resume in pdf format</h2>
+    <form method="post" action="{{ url_for('file_upload') }}" enctype="multipart/form-data">
+      <div class="file-input">
+        <label for="upload_file">📂 Choose File</label>
+        <input type="file" id="upload_file" name="upload_file">
+      </div>
+      <button type="submit" class="btn-submit">Upload</button>
+    </form>
+    <h3>Role is:</h3>
+    {{role}}
+  </div>
+</body>
+</html>
